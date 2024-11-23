@@ -1,7 +1,7 @@
 import faiss
 import numpy as np
 
-dimention = 768
+dimention = 384
 index = faiss.IndexFlatL2(dimention)
 
 def add_to_index(embedding):

@@ -11,11 +11,11 @@ router = APIRouter()
 async def upload_file(file: UploadFile):
     file_path = f"uploads/{file.filename}"
     with open(file_path, "wb") as f:
-        f.write(file.file.read())
+        f.write(await file.read())
 
     text = extract_text_from_pdf(file_path)
     embedding = generate_embeddings(text)
     add_to_index(embedding)
     save_file_metadata(file.filename, text, embedding, [])
 
-    return {"filename": file.filename, "message": "File uploaded and processed"}
+    return {"filename": file.filename, "message": "File uploaded and processed", "text": text}
