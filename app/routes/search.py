@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 
 from services.embeddings import generate_embeddings
 from services.faiss_search import search_embeddings
-from services.db import get_file_by_index
+from db import get_file_by_index
 
 router = APIRouter()
 
