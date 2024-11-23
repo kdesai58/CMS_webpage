@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from services.classification import classify_document
+
+from app.services.classification import classify_document
 
 router = APIRouter()
 
