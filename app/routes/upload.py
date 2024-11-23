@@ -1,9 +1,9 @@
 from fastapi import APIRouter, File, UploadFile, Form
 
-from app.services.text_extraction import extract_text_from_pdf
-from app.services.embeddings import generate_embeddings
-from app.services.faiss_search import add_to_index
-from app.services.db import save_file_metadata
+from services.text_extraction import extract_text_from_pdf
+from services.embeddings import generate_embeddings
+from services.faiss_search import add_to_index
+from services.db import save_file_metadata
 
 router = APIRouter()
 

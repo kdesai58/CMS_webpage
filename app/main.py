@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routes import upload, search, classify 
+from routes import upload, search, classify 
 
 app = FastAPI()
 
