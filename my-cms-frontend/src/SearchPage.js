@@ -1,30 +1,49 @@
 import React, { useState } from 'react';
 
 function SearchPage() {
-    const [query, setQuery] = useState("");
+    const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
 
     const handleSearch = async () => {
-        const response = await fetch("http://localhost:8000/search/", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ query }),
-        });
+        try {
+            const response = await fetch(`http://127.0.0.1:8000/search/?query=${query}`, {
+                method: 'GET',
+            });
 
-        const data = await response.json();
-        setResults(data.results);
+            if (response.ok) {
+                const data = await response.json();
+                setResults(data);
+            } else {
+                console.error("Search failed:", response);
+            }
+        } catch (error) {
+            console.error("Error during search:", error);
+        }
     };
 
     return (
         <div>
             <h2>Search Documents</h2>
-            <input type="text" onChange={(e) => setQuery(e.target.value)} />
+            <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Enter search query"
+            />
             <button onClick={handleSearch}>Search</button>
-            <ul>
-                {results.map((result, idx) => (
-                    <li key={idx}>{result.filename}</li>
-                ))}
-            </ul>
+
+            <div>
+                <h3>Search Results</h3>
+                {results.length > 0 ? (
+                    <ul>
+                        {results.map((result, index) => (
+                            <li key={index}>{result.title}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No results found.</p>
+                )}
+            </div>
         </div>
     );
 }

@@ -24,5 +24,3 @@ function UploadPage() {
         </div>
     );
 }
-
-export default UploadPage;
