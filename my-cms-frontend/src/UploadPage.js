@@ -7,13 +7,21 @@ function UploadPage() {
         const formData = new FormData();
         formData.append("file", file);
 
-        const response = await fetch("http://localhost:8000/upload/", {
-            method: "POST",
-            body: formData,
-        });
+        try {
+            const response = await fetch("http://127.0.0.1:8000/upload/", {
+                method: "POST",
+                body: formData,
+            });
 
-        const data = await response.json();
-        console.log(data);
+            if (response.ok) {
+                const data = await response.json();
+                console.log("File uploaded successfully:", data);
+            } else {
+                console.error("Error uploading file:", response);
+            }
+        } catch (error) {
+            console.error("Error during upload:", error);
+        }
     };
 
     return (
