@@ -15,10 +15,12 @@ async def upload_file(file: UploadFile):
 
     text = extract_text_from_pdf(file_path)
     embedding = generate_embeddings(text)
-    embedding_id = add_to_index(embedding)
-    
-    
     # return {'embedding_id': embedding_id}
-    save_file_metadata(file.filename, categories=["uncategorized"], embedding_id=embedding_id)
+    doc_id = save_file_metadata(file.filename, text)
+    add_to_index(doc_id, embedding)
 
-    return {"filename": file.filename, "message": "File uploaded and processed", "text": text}
+    return {"filename": file.filename, "message": "File uploaded and processed", "doc_id": doc_id, "text": text}
+
+@router.get("/")
+def root():
+    return {"message": "Hi, Welcome to upload page!"}

@@ -8,22 +8,26 @@ dimention = 384
 index = faiss.IndexFlatL2(dimention)
 
 def save_faiss_index():
-    faiss.write_index(index, "vector_index.faiss")
+    faiss.write_index(index, INDEX_FILE)
+    print("FAISS index saved.")
 
-def load_faiss_index(dimension=384):
+# Initialize or load FAISS index
+def initialize_faiss_index():
     global index
-    if os.path.exists(INDEX_FILE):
+    if faiss.read_index(INDEX_FILE):
         index = faiss.read_index(INDEX_FILE)
-        print(f"FAISS index loaded from {INDEX_FILE}")
+        print("FAISS index loaded.")
     else:
-        index = faiss.IndexFlatL2(dimension)
-        print("Initialized new FAISS index")
+        index = faiss.IndexFlatL2(dimention)  # L2 distance metric
+        print("Initialized a new FAISS index.")
 
-def add_to_index(embedding):
+initialize_faiss_index()
+
+def add_to_index(doc_id, embedding):
     index.add(np.array([embedding], dtype=np.float32))
     save_faiss_index()
-    return index.ntotal-1
+    return embedding
 
 def search_embeddings(query_embedding, top_k):
     distances, indices = index.search(np.array([query_embedding], dtype=np.float32), top_k)
-    return distances[0], indices[0]
+    return distances, indices

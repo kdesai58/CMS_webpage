@@ -10,22 +10,28 @@ cursor.execute('''
 CREATE TABLE IF NOT EXISTS documents (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     filename TEXT,
-    categories TEXT,
-    embedding_id INTEGER
+    text TEXT
 )
 ''')
 conn.commit()
 
 # Save file metadata, including serialized embedding
-def save_file_metadata(filename, categories, embedding_id):
+def save_file_metadata(filename, text):
     cursor.execute('''
-    INSERT INTO documents (filename, categories, embedding_id)
-    VALUES (?, ?, ?)
-    ''', (filename, ",".join(categories), embedding_id))
+    INSERT INTO documents (filename, text)
+    VALUES (?, ?)
+    ''', (filename, text))
     conn.commit()
+    return cursor.lastrowid
 
 def get_metadata_by_id(doc_id):
-    cursor.execute('''
-    SELECT filename, categories FROM documents WHERE id = ?
-    ''', (doc_id,))
-    return cursor.fetchone()
+    # Assuming doc_id is the FAISS index (1-based indexing for the database)
+    cursor.execute("SELECT * FROM documents WHERE id = ?", (doc_id,))
+    metadata = cursor.fetchone()
+    # print(f"Fetched metadata for doc_id {doc_id}: {metadata}")
+    return metadata
+
+def get_all_files():
+    """Retrieve all file metadata."""
+    cursor.execute('SELECT id, filename, text FROM documents')
+    return cursor.fetchall()
