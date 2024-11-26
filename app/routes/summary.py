@@ -1,13 +1,15 @@
-from fastapi import APIRouter, UploadFile
-
-from app.services.summarizer import generate_summary
+from fastapi import APIRouter, UploadFile, File
+from typing import List
 
 router = APIRouter()
 
-@router.post("/")
+@router.post("/summarize/")
 async def summarize_pdf(files: List[UploadFile] = File(...)):
-    responce = []
+    summaries = []
     for file in files:
-        summary = generate_summary(text)
+        # Simulated summarization process
+        content = await file.read()
+        summary = f"Summary for {file.filename}: {len(content)} bytes processed."
+        summaries.append({"filename": file.filename, "summary": summary})
 
-    return {"summaries of files": responce}
+    return {"summaries": summaries}

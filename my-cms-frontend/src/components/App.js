@@ -1,6 +1,7 @@
 import React from 'react';
 import UploadPage from './components/UploadPage';
 import SearchPage from './components/SearchPage';
+import SummaryPage from './components/SummaryPage';
 
 function App() {
     return (
@@ -8,6 +9,7 @@ function App() {
             <h1>Document Management System</h1>
             <UploadPage />
             <SearchPage />
+            <SummaryPage />
         </div>
     );
 }
