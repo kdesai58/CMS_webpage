@@ -10,17 +10,24 @@ cursor.execute('''
 CREATE TABLE IF NOT EXISTS documents (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     filename TEXT,
-    text TEXT
+    text TEXT,
+    file_hash TEXT UNIQUE
 )
 ''')
 conn.commit()
 
+def is_file_duplicate(file_hash):
+    # Query the database to check if the file hash already exists
+    cursor.execute("SELECT id FROM documents WHERE file_hash = ?", (file_hash,))
+    result = cursor.fetchone()
+    return result is not None
+
 # Save file metadata, including serialized embedding
-def save_file_metadata(filename, text):
+def save_file_metadata(filename, text, file_hash):
     cursor.execute('''
-    INSERT INTO documents (filename, text)
-    VALUES (?, ?)
-    ''', (filename, text))
+    INSERT INTO documents (filename, text, file_hash)
+    VALUES (?, ?, ?)
+    ''', (filename, text, file_hash))
     conn.commit()
     return cursor.lastrowid
 
