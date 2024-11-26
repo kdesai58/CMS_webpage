@@ -22,14 +22,14 @@ def search_documents(query: str, top_k: int = 3):
             if idx > 0:  # Ensure valid index
                 print("idx is ", idx)
 
-                metadata = get_metadata_by_id(int(idx))  # FAISS indices start from 0
+                metadata = get_metadata_by_id(int(idx+1))  # FAISS indices start from 0
                 print("metadata exicuted")
                 # print(f"metadata is {metadata[1]}")
                 # results.append({metadata[1]})
                 # print("done")
                 if metadata:
                     print("enter")
-                    results.append({"id": metadata[0], "filename": metadata[1], "text": metadata[2]})
+                    results.append({"id": metadata[0], "filename": metadata[1]})
                     
     if not results:
         # Debugging: If results are empty, explain why
