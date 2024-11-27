@@ -11,12 +11,17 @@ def save_faiss_index():
     faiss.write_index(index, INDEX_FILE)
     print("FAISS index saved.")
 
-# Initialize or load FAISS index
 def initialize_faiss_index():
     global index
-    if faiss.read_index(INDEX_FILE):
-        index = faiss.read_index(INDEX_FILE)
-        print("FAISS index loaded.")
+    if os.path.exists(INDEX_FILE):  # Check if index file exists
+        try:
+            index = faiss.read_index(INDEX_FILE)
+            print("FAISS index loaded successfully.")
+        except Exception as e:
+            print(f"Error loading FAISS index: {e}")
+            # Reinitialize the index if loading fails
+            index = faiss.IndexFlatL2(dimention)
+            print("Initialized a new FAISS index after failure.")
     else:
         index = faiss.IndexFlatL2(dimention)  # L2 distance metric
         print("Initialized a new FAISS index.")
