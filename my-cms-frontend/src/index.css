@@ -1,9 +1,10 @@
-/* General body styles */
+/* General body styling */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   padding: 0;
-  background-color: rgb(131, 191, 193);
+  background-color: black; /* Black background for the page */
+  color: white; /* White text for the page */
 }
 
 /* Header styling */
@@ -12,13 +13,13 @@ h1 {
   text-align: center;
   margin-top: 0;
   padding: 20px;
-  background-color: #dcb286;
+  background-color: #444; /* Dark gray header background */
 }
 
 /* Footer styling */
 .footer {
-  background-color: #dcb286;
-  color: black;
+  background-color: #444; /* Dark gray footer background */
+  color: white;
   text-align: center;
   position: fixed;
   padding: 10px;
@@ -27,24 +28,61 @@ h1 {
   width: 100%;
 }
 
-/* Style for buttons */
+/* Style for the summary box */
+.summary-box {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto; /* Centers the box horizontally and vertically */
+  padding: 20px;
+  background-color: white; /* White background for the box */
+  color: black; /* Black text inside the box */
+  border: 2px solid #ccc; /* Light gray border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  text-align: justify; /* Justifies the text */
+}
+
+/* Summary box header styling */
+.summary-box h3 {
+  text-align: center;
+  color: black; /* Black header text inside the summary box */
+  margin-bottom: 15px;
+}
+
+/* Summary list styling */
+.summary-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.summary-box li {
+  margin-bottom: 15px;
+}
+
+/* Button styling */
 button {
-  font-size: 18px;             /* Increase font size */
-  padding: 15px 30px;          /* Add more padding */
-  margin: 15px;                /* Add space around buttons */
-  background-color: #3498db;   /* Set a nice color */
-  color: white;                /* Text color */
-  border: none;                /* Remove border */
-  border-radius: 5px;          /* Rounded corners */
-  cursor: pointer;             /* Change cursor to pointer */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  font-size: 18px;
+  padding: 15px 30px;
+  margin: 15px;
+  background-color: white; /* White button */
+  color: black; /* Black text */
+  border: 2px solid white; /* White border for contrast */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
-  background-color: #2980b9;   /* Darker shade on hover */
+  background-color: black; /* Black background on hover */
+  color: white; /* White text on hover */
 }
 
-/* Style for code block */
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+/* Centering content in the body */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full viewport height */
+  padding: 20px;
 }

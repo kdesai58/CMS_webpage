@@ -12,13 +12,13 @@ function App() {
             </header>
 
             <main className="content">
-                <UploadPage setSummaries={setSummaries} />  {/* Passing setSummaries to UploadPage */}
+                <UploadPage setSummaries={setSummaries} />
                 <SearchPage />
 
-                {/* Display summaries directly below the UploadPage */}
+                {/* Display summaries in the centered box */}
                 {summaries.length > 0 && (
-                    <div>
-                        <h3>Summaries:</h3>
+                    <div className="summary-box">
+                        <h3>Document Summaries:</h3>
                         <ul>
                             {summaries.map((summary, index) => (
                                 <li key={index}>
