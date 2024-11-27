@@ -13,12 +13,13 @@ function SearchPage() {
         }
     
         try {
-            const response = await fetch(`http://127.0.0.1:8000/search/`, {
-                method: 'POST', // Change to POST
-                headers: {
-                    'Content-Type': 'application/json', // Add this for JSON body
-                },
-                body: JSON.stringify({ query }), // Send query as JSON in the request body
+            
+            const response = await fetch(`http://127.0.0.1:8000/search/{}`, {
+                method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded', // Form data format
+            },
+            body: new URLSearchParams({ query }).toString(),
             });
     
             if (response.ok) {

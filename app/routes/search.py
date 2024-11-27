@@ -6,7 +6,7 @@ from app.db import get_metadata_by_id
 
 router = APIRouter()
 
-@router.post("/")
+@router.get("/")
 def search_documents(query: str, top_k: int = 3):
     query_embedding = generate_embeddings(query)
     # return {"shape": query_embedding.shape}
@@ -19,8 +19,8 @@ def search_documents(query: str, top_k: int = 3):
     results = []
     if len(indices) > 0:
         for idx in indices[0]:
-            if idx > 0:  # Ensure valid index
-                print("idx is ", idx)
+            if idx > -1:  # Ensure valid index
+                print("idx is ", (idx+1))
 
                 metadata = get_metadata_by_id(int(idx+1))  # FAISS indices start from 0
                 print("metadata exicuted")
