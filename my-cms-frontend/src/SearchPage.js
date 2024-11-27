@@ -6,6 +6,7 @@ function SearchPage() {
     const [error, setError] = useState('');
 
     const handleSearch = async () => {
+        console.log("Search query:", query); // Debugging
         if (!query.trim()) {
             alert("Please enter a search query!");
             return;
@@ -45,7 +46,14 @@ function SearchPage() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Enter search query"
             />
-            <button onClick={handleSearch}>Search</button>
+            <button
+                onClick={() => {
+                    console.log("Search button clicked!"); // Debugging
+                    handleSearch();
+                }}
+            >
+            Search
+            </button>
 
             {/* Display error */}
             {error && <p style={{ color: 'red' }}>{error}</p>}
