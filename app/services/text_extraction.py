@@ -19,7 +19,7 @@ def extract_text_from_pdf(file_path):
         for page_num in range(len(doc)):
             page = doc.load_page(page_num)
             text += page.get_text()
-            print(text)
+            # print(text)
         return text
     except Exception as e:
         raise ValueError(f"Error extracting text from PDF: {e}")
