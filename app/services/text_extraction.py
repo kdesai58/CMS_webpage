@@ -3,6 +3,7 @@ from PyPDF2 import PdfReader
 import fitz
 
 import re
+
 # from nltk.tokenize import word_tokenize
 
 # def preprocess_text(text):
