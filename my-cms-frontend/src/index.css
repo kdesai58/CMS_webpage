@@ -28,12 +28,24 @@ h1 {
   width: 100%;
 }
 
+.response, .summaries {
+  width: 80%;
+  max-width: 600px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  /* background-color: #f9f9f9; */
+  color: white;
+  border: 1px solid #ddd;
+}
+
+
 /* Style for the summary box */
 .summary-box {
   width: 80%;
   max-width: 800px;
-  margin: 50px auto; /* Centers the box horizontally and vertically */
-  padding: 20px;
+  margin: 25px auto; /* Centers the box horizontally and vertically */
+  padding: 10px;
   background-color: white; /* White background for the box */
   color: black; /* Black text inside the box */
   border: 2px solid #ccc; /* Light gray border */

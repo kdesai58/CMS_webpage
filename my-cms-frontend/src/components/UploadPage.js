@@ -61,7 +61,7 @@ function UploadPage() {
     };
 
     return (
-        <div>
+        <div className="content-container" >
             <h2>Upload and Summarize Documents</h2>
             <input
                 type="file"
@@ -73,7 +73,7 @@ function UploadPage() {
 
             {/* Display response messages */}
             {response.length > 0 && (
-                <div>
+                <div className="response">
                     <h3>Response:</h3>
                     <ul>
                         {response.map((message, index) => (
@@ -85,7 +85,7 @@ function UploadPage() {
 
             {/* Display summaries */}
             {summaries.length > 0 && (
-                <div>
+                <div className="summaries">
                     <h3>Summaries:</h3>
                     <ul>
                         {summaries.map((summary, index) => (
