@@ -3,8 +3,8 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   padding: 0;
-  background-color: black; /* Black background for the page */
-  color: white; /* White text for the page */
+  background: linear-gradient(to bottom, #5c11d5, #09618e);
+  color: white; /* White text for contrast */
 }
 
 /* Header styling */
@@ -13,12 +13,12 @@ h1 {
   text-align: center;
   margin-top: 0;
   padding: 20px;
-  background-color: #444; /* Dark gray header background */
+  background-color: #5c11d5; 
 }
 
 /* Footer styling */
 .footer {
-  background-color: #444; /* Dark gray footer background */
+  background-color: #1b5997; 
   color: white;
   text-align: center;
   position: fixed;

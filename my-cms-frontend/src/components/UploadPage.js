@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function UploadPage() {
     const [files, setFiles] = useState([]); // State to store selected files
     const [summaries, setSummaries] = useState([]); // State to store summaries
+    const [response, setResponse] = useState([]); // State to store messages
 
     const handleUpload = async () => {
         const formData = new FormData();
@@ -17,8 +18,14 @@ function UploadPage() {
                 body: formData,
             });
 
+            if(response.ok) {
             const data = await response.json();
             console.log("Upload Response:", data);
+            setResponse(data.response); // Update state with response
+            }
+            else{
+                console.error("Error uploading files:", response.status);
+            }
         } catch (error) {
             console.error("Error during upload:", error);
         }
@@ -63,6 +70,18 @@ function UploadPage() {
             />
             <button onClick={handleUpload}>Upload</button>
             <button onClick={handleSummarize}>Summarize</button>
+
+            {/* Display response messages */}
+            {response.length > 0 && (
+                <div>
+                    <h3>Response:</h3>
+                    <ul>
+                        {response.map((message, index) => (
+                            <li key={index}>{message.filename} : {message.message}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
 
             {/* Display summaries */}
             {summaries.length > 0 && (
