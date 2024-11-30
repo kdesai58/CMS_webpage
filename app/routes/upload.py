@@ -46,8 +46,6 @@ async def upload_file(files: List[UploadFile] = File(...)):
         response.append({
             "filename": file.filename,
             "message": "File uploaded and processed",
-            "doc_id": doc_id,
-            "text": text
         })
 
     return {"files": response}

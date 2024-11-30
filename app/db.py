@@ -1,5 +1,7 @@
+# Description: This file contains the database logic for storing and retrieving file metadata.
+
+# Import the required libraries
 import sqlite3
-import pickle  # For serializing and deserializing embeddings
 
 # Initialize SQLite database
 conn = sqlite3.connect('cms.db',check_same_thread=False)
@@ -16,13 +18,14 @@ CREATE TABLE IF NOT EXISTS documents (
 ''')
 conn.commit()
 
+# function to check if the file hash already exists in the database
 def is_file_duplicate(file_hash):
     # Query the database to check if the file hash already exists
     cursor.execute("SELECT id FROM documents WHERE file_hash = ?", (file_hash,))
     result = cursor.fetchone()
     return result is not None
 
-# Save file metadata, including serialized embedding
+# function to save the file metadata to the database
 def save_file_metadata(filename, text, file_hash):
     cursor.execute('''
     INSERT INTO documents (filename, text, file_hash)
@@ -31,13 +34,14 @@ def save_file_metadata(filename, text, file_hash):
     conn.commit()
     return cursor.lastrowid
 
+# function to search for files based on the doc_id
 def get_metadata_by_id(doc_id):
     # Assuming doc_id is the FAISS index (1-based indexing for the database)
     cursor.execute("SELECT * FROM documents WHERE id = ?", (doc_id,))
     metadata = cursor.fetchone()
-    # print(f"Fetched metadata for doc_id {doc_id}: {metadata}")
     return metadata
 
+# function to get all files from the database
 def get_all_files():
     """Retrieve all file metadata."""
     cursor.execute('SELECT id, filename, text FROM documents')
