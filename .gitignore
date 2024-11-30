@@ -2,3 +2,15 @@
 __pycache__/
 *.pyc
 *.pyo
+
+app/__pycache__/
+*.pyc
+*.pyo
+
+app/routes/__pycache__/
+*.pyc
+*.pyo
+
+app/services/__pycache__/
+*.pyc
+*.pyo
