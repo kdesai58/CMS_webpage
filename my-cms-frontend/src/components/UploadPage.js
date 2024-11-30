@@ -77,11 +77,7 @@ function UploadPage() {
                     <h3>Response:</h3>
                     <ul>
                         {response.map((message, index) => (
-<<<<<<< HEAD
-                            <li key={index}>{message.message}</li>
-=======
                             <li key={index}>{message.filename} : {message.message}</li>
->>>>>>> 7036c5dc0d169867ad63743dfdc5dd85b3f83d49
                         ))}
                     </ul>
                 </div>
