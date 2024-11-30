@@ -37,7 +37,11 @@ async def upload_file(files: List[UploadFile] = File(...)):
         if is_file_duplicate(file_hash):
             response.append({
                 "filename": file.filename,
+<<<<<<< HEAD
                 "message": "File already exists in the database.",
+=======
+                "message": "File already exists in the database",
+>>>>>>> 7036c5dc0d169867ad63743dfdc5dd85b3f83d49
             })
             continue
             # raise HTTPException(status_code=400, detail=f"File {file.filename} already exists in the database.")
