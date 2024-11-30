@@ -9,10 +9,8 @@ from app.db import get_metadata_by_id
 # creating an instance of APIRouter
 router = APIRouter()
 
-# get request to search documents
+# endpoint to search the documents via get request
 @router.get("/")
-
-# function to search documents
 def search_documents(query: str, top_k: int = 3):
 
     query_embedding = generate_embeddings(query)   # Generate embeddings for the query
