@@ -35,7 +35,12 @@ async def upload_file(files: List[UploadFile] = File(...)):
 
         # Check if the file is a duplicate
         if is_file_duplicate(file_hash):
-            raise HTTPException(status_code=400, detail=f"File {file.filename} already exists in the database.")
+            response.append({
+                "filename": file.filename,
+                "message": "File already exists in the database.",
+            })
+            continue
+            # raise HTTPException(status_code=400, detail=f"File {file.filename} already exists in the database.")
     
         with open(file_path, "wb") as f:
             f.write(file_content)
@@ -51,7 +56,7 @@ async def upload_file(files: List[UploadFile] = File(...)):
             "message": "File uploaded and processed",
         })
 
-    return {"files": response}
+    return {"response": response}
 
 # get request to root
 @router.get("/")
