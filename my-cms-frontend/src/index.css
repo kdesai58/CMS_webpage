@@ -1,51 +1,50 @@
 /* General body styling */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; /*Used a professional font for the body text */
   padding: 0;
-  background: linear-gradient(to bottom, #5c11d5, #09618e);
+  background: linear-gradient(to bottom, #5c11d5, #09618e); /* Gradient background from purple to blue*/
   color: white; /* White text for contrast */
 }
 
 /* Header styling */
 h1 {
-  color: white;
-  text-align: center;
+  color: white; /* White header text */
+  text-align: center; /* Centers the header text */
   margin-top: 0;
   padding: 20px;
-  background-color: #5c11d5; 
+  background-color: #5c11d5;  /* Purple background for the header to blend with the background*/
 }
 
 /* Footer styling */
 .footer {
-  background-color: #1b5997; 
-  color: white;
-  text-align: center;
-  position: fixed;
-  padding: 10px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  background-color: #1b5997;  /* Blue background for the footer to blend with the background*/
+  color: white; /* White text for contrast */
+  text-align: center; /* Centers the text */
+  position: fixed;  /* Fixed position */
+  padding: 10px;  /* Padding around the text */
+  left: 0;  /* Aligns the text to the left */
+  bottom: 0;  /* Aligns the text to the bottom */
+  width: 100%;  /* Full width */
 }
 
-.response, .summaries {
-  width: 80%;
-  max-width: 600px;
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 8px;
-  /* background-color: #f9f9f9; */
-  color: white;
-  border: 1px solid #ddd;
+.response, .summaries { /* Styling for the response and summaries divs */
+  width: 80%; /* 80% width */
+  max-width: 600px; /* Maximum width of 600px */
+  margin-top: 20px; /* Margin on top */
+  padding: 20px;  /* Padding around the content */
+  border-radius: 8px; /* Rounded corners */
+  color: white; /* White text */
+  border: 1px solid #ddd; /* Light gray border */
 }
 
 
 /* Style for the summary box */
 .summary-box {
-  width: 80%;
-  max-width: 800px;
+  width: 80%; /* 80% width */
+  max-width: 800px; /* Maximum width of 800px */
   margin: 25px auto; /* Centers the box horizontally and vertically */
-  padding: 10px;
+  padding: 10px;  /* Padding around the content */
   background-color: white; /* White background for the box */
   color: black; /* Black text inside the box */
   border: 2px solid #ccc; /* Light gray border */
@@ -55,46 +54,46 @@ h1 {
 }
 
 /* Summary box header styling */
-.summary-box h3 {
-  text-align: center;
+.summary-box h3 { /* Header for the summary box */
+  text-align: center; /* Centers the header text */
   color: black; /* Black header text inside the summary box */
-  margin-bottom: 15px;
+  margin-bottom: 15px;  /* Margin at the bottom */
 }
 
 /* Summary list styling */
-.summary-box ul {
-  list-style-type: none;
+.summary-box ul { /* Unordered list inside the summary box */
+  list-style-type: none;  /* Removes the bullet points */
   padding: 0;
 }
 
 .summary-box li {
-  margin-bottom: 15px;
+  margin-bottom: 15px;  /* Margin at the bottom */
 }
 
 /* Button styling */
 button {
-  font-size: 18px;
-  padding: 15px 30px;
-  margin: 15px;
+  font-size: 18px;  /* Font size of 18px */
+  padding: 15px 30px; /* Padding around the text */
+  margin: 15px; /* Margin around the button */
   background-color: white; /* White button */
   color: black; /* Black text */
   border: 2px solid white; /* White border for contrast */
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;  /* Pointer cursor on hover */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-button:hover {
+button:hover {  /* Hover effect for the button */
   background-color: black; /* Black background on hover */
   color: white; /* White text on hover */
 }
 
 /* Centering content in the body */
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: flex;  /* Flexbox layout */
+  flex-direction: column; /* Stacks the content vertically */
+  align-items: center;  /* Centers the content horizontally */
+  justify-content: center;  /* Centers the content vertically */
   min-height: 100vh; /* Full viewport height */
-  padding: 20px;
+  padding: 20px;  /* Padding around the content */
 }

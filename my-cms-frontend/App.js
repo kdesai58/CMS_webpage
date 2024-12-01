@@ -1,15 +1,15 @@
-import React from 'react';
-import UploadPage from './components/UploadPage';
-import SearchPage from './components/SearchPage';
+import React from 'react';  // Import the React library
+import UploadPage from './components/UploadPage';   // Import the UploadPage component
+import SearchPage from './components/SearchPage';   // Import the SearchPage component
 
-function App() {
-    return (
-        <div>
-            <h1>Document Management System</h1>
-            <UploadPage />
-            <SearchPage />
+function App() {    // Define the App component
+    return (    // Render the App component
+        <div>       
+            <h1>Document Management System</h1> {/* Display the page title */}
+            <UploadPage />  {/* Render the UploadPage component */}
+            <SearchPage />  {/* Render the SearchPage component */}
         </div>
     );
 }
 
-export default App;
+export default App; // Export the App component
