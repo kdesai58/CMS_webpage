@@ -9,7 +9,9 @@ Below are the instructions to get yourself a working copy of the CMS app on your
 
 *How to clone a copy of the repository:*
 
-https://github.com/kdesai58/CMS_webpage.git     Using your desired IDE (VS Code, for example), clone the repository using the preceeding link.
+https://github.com/kdesai58/CMS_webpage.git     Using your desired IDE (VS Code, for example), to clone the repository use the following command on your terminal.
+
+    git clone https://github.com/kdesai58/CMS_webpage.git
 
 *How to install all the dependencies needed:*
 
@@ -18,24 +20,20 @@ Start a new terminal and run the installation codes below to set up your environ
     npx create-react-app my-cms-frontend
     cd my-cms-frontend
     npm install react-router-dom
-    pip install fastapi
-    pip install uvicorn
-    pip install sqlalchemy
-    pip install fastapi[all]
-    pip install faiss-cpu
-    pip install pypdf2
-    pip install numpy
+    cd ..
+    pip install -r requirements.txt 
 
 
 *How to start the backend and frontend in order to run the program:*
 
 Once the above is done, in your terminal, run the commands below:
 
-Start the development server:
-
+Start the development server: (Open new terminal)
+    
+    cd my-cms-frontend
     npm start
 
-Start the FastAPI server:
+Start the FastAPI server:  (Open new terminal)
 
     uvicorn app.main:app --reload
 
@@ -48,4 +46,7 @@ Depending on your device's specifications, the summary and search features may t
 
 While this is a fully functional program, there are a few updates in line to make this an even better experience:
 
-    Modifying the number of search results given to the user...
+    Optimizing the summarization model to process the large file as well.
+    Integrating classification feature to classify the files into respected categories or sub-categories.
+    Deploy it on internet and integrate login and sign-up page.
+    Modifying the number of search results given to the user.

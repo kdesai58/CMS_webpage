@@ -1,10 +1,16 @@
+import os
 
+# Disable parallelism to avoid deadlocks
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
+# Importing required libraries
 from transformers import pipeline, AutoTokenizer
 
+# Load the BART summarization model
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large-cnn")
 
+# Function to generate a summary of the input text
 def generate_summary(text: str):
     # Tokenize the input text to get the number of tokens
     input_tokens = tokenizer.encode(text, truncation=True)
