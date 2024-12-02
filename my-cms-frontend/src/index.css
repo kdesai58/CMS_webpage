@@ -21,7 +21,7 @@ h1 {
   background-color: #1b5997;  /* Blue background for the footer to blend with the background*/
   color: white; /* White text for contrast */
   text-align: center; /* Centers the text */
-  position: fixed;  /* Fixed position */
+  /*position: fixed;  /* Fixed position */
   padding: 10px;  /* Padding around the text */
   left: 0;  /* Aligns the text to the left */
   bottom: 0;  /* Aligns the text to the bottom */
@@ -32,7 +32,7 @@ h1 {
   width: 80%; /* 80% width */
   max-width: 600px; /* Maximum width of 600px */
   margin-top: 20px; /* Margin on top */
-  padding: 20px;  /* Padding around the content */
+  padding: 10px;  /* Padding around the content */
   border-radius: 8px; /* Rounded corners */
   color: white; /* White text */
   border: 1px solid #ddd; /* Light gray border */
